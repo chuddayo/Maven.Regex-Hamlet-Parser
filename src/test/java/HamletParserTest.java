@@ -1,5 +1,8 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.regex.Matcher;
 
 import static org.junit.Assert.*;
 
@@ -23,9 +26,17 @@ public class HamletParserTest {
 
     @Test
     public void testFindHoratio() {
+        Matcher match = hamletParser.findHoratio();
+
+        Assert.assertTrue(match.find());
+        Assert.assertEquals("Horatio", match.group());
     }
 
     @Test
     public void testFindHamlet() {
+        Matcher match = hamletParser.findHamlet();
+
+        Assert.assertTrue(match.find());
+        Assert.assertEquals("Hamlet", match.group());
     }
 }
